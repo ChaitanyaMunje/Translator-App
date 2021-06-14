@@ -1,9 +1,13 @@
 package com.gtappdevelopers.translatorapp;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -64,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, fromLanguages);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.spinner_item, fromLanguages);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fromSpinner.setAdapter(arrayAdapter);
         Spinner toSpinner = findViewById(R.id.idSpToLanguage);
@@ -81,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        ArrayAdapter arrayAdapter1 = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, toLanguages);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter arrayAdapter1 = new ArrayAdapter(this, R.layout.spinner_item, toLanguages);
+        arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         toSpinner.setAdapter(arrayAdapter1);
 
         textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {

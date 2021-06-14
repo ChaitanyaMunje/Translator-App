@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_shade_1"
     android:orientation="vertical"
     android:theme="@style/AppTheme.MaterialTheme">
 
@@ -19,56 +20,12 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="4">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/idTILSource"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="3.5"
-            android:hint="Source Text"
-            android:padding="5dp"
-            android:textColorHint="@color/black"
-            app:hintTextColor="@color/purple_200">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/idEdtSourceLanguage"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:ems="10"
-                android:importantForAutofill="no"
-                android:inputType="textImeMultiLine|textMultiLine"
-                android:textColor="@color/black"
-                android:textColorHint="@color/purple_200"
-                android:textSize="14sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <ImageView
-            android:id="@+id/idIVMic"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:src="@drawable/ic_mic"
-            android:visibility="visible"
-            app:tint="@color/yellow" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:orientation="horizontal"
         android:paddingTop="4dp"
@@ -90,7 +47,7 @@
             android:layout_weight="0.4"
             android:background="@drawable/spinner_back"
             android:src="@drawable/ic_arrow_right"
-            app:tint="@color/black" />
+            app:tint="@color/white" />
 
         <Spinner
             android:id="@+id/idSpToLanguage"
@@ -99,9 +56,60 @@
             android:layout_margin="4dp"
             android:layout_weight="1.2"
             android:padding="4dp" />
-
-
     </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/idTILSource"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:hint="Source Text"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/idEdtSourceLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:importantForAutofill="no"
+            android:inputType="textImeMultiLine|textMultiLine"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        android:text="OR"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/idIVMic"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_mic"
+        android:visibility="visible"
+        app:tint="@color/yellow" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Say Something"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/idBtnTranslate"
@@ -109,7 +117,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:text="Translate"
         android:textAllCaps="false"
@@ -126,7 +134,7 @@
         android:layout_marginEnd="20dp"
         android:padding="4dp"
         android:singleLine="false"
-        android:text="Enter your text to translate"
+        android:text="Translated Text"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/yellow"
