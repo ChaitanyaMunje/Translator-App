@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
             "Hindi", "Urdu"};
 
     int langCode;
-    TextToSpeech textToSpeech;
     int fromLanguageCode, toLanguageCode = 0;
     private TextView translatedTV;
     private TextInputEditText sourceEdt;
@@ -88,18 +87,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter arrayAdapter1 = new ArrayAdapter(this, R.layout.spinner_item, toLanguages);
         arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         toSpinner.setAdapter(arrayAdapter1);
-
-        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if (status != TextToSpeech.ERROR) {
-                    textToSpeech.setLanguage(Locale.ENGLISH);
-                } else {
-                    Toast.makeText(MainActivity.this, "Language Not Supported..", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
         translateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,17 +169,13 @@ public class MainActivity extends AppCompatActivity {
             default:
                 langCode = 0;
         }
-//        translateText(langCode);
         return langCode;
     }
 
     private void translateText(int fromLanguageCode, int toLanguageCode, String sourceText) {
-
         translatedTV.setText("Translating..");
         FirebaseTranslatorOptions options = new FirebaseTranslatorOptions.Builder()
-                //from language
                 .setSourceLanguage(fromLanguageCode)
-                // to language
                 .setTargetLanguage(toLanguageCode)
                 .build();
 
@@ -224,6 +207,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
